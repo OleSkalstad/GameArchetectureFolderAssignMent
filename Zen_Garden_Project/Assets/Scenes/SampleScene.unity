@@ -924,10 +924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8597150978db114fa60f264c04a4e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamboohit: {fileID: 8300000, guid: 7f4185d3715f49446b4c6aef5a01d434, type: 3}
   maxDistance: 200
-  orbitSpeed: 20
-  player: {fileID: 896314494}
-  Radius: 5
 --- !u!65 &896314491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1051,8 +1049,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dba36a2545ea9d442bac4beb1c6813a6, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 7f4185d3715f49446b4c6aef5a01d434, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1516,10 +1514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8597150978db114fa60f264c04a4e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamboohit: {fileID: 0}
   maxDistance: 200
-  orbitSpeed: 20
-  player: {fileID: 0}
-  Radius: 5
 --- !u!114 &991450470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,10 +2209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8597150978db114fa60f264c04a4e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bamboohit: {fileID: 8300000, guid: 7f4185d3715f49446b4c6aef5a01d434, type: 3}
   maxDistance: 200
-  orbitSpeed: 20
-  player: {fileID: 1421952240}
-  Radius: 5
 --- !u!65 &1421952237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2313,8 +2307,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dba36a2545ea9d442bac4beb1c6813a6, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 7f4185d3715f49446b4c6aef5a01d434, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

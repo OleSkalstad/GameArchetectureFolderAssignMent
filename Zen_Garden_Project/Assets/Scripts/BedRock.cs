@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class BedRock : MonoBehaviour
 {
+    public AudioClip bamboohit;
     AudioSource audioSource;
     float[] audioData;
     [SerializeField, Header("3D sound")]
@@ -67,7 +68,7 @@ public class BedRock : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = AudioClip.Create("LoadedClip", audioData.Length, 1, 44100, false);
             audioSource.clip.SetData(audioData, 0);
-            audioSource.Play(0);
+            audioSource.PlayOneShot(bamboohit, 0.7f);
         }
     }
 
