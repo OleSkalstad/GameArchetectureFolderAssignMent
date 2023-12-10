@@ -12,15 +12,12 @@ public class ShShiStick : MonoBehaviour
     private Water WaterBall;
     private BedRock _rock;
     private Vector3 averagePosition;
-
     private bool hitback=false;
     private bool hitfront=false;
-
     public int SumOfDrops;
     private Anchorpoint _Anchorpoint;
     public Transform BackTransform;
    
-
     public int backweight;
     private void OnDrawGizmos()
     {
@@ -28,13 +25,11 @@ public class ShShiStick : MonoBehaviour
         Gizmos.DrawSphere(averagePosition, 0.5f);
         
     }
-
     // Start is called before the first frame update
     void Start()
     {
         _Anchorpoint = FindObjectOfType<Anchorpoint>();
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject!=null)
@@ -46,27 +41,23 @@ public class ShShiStick : MonoBehaviour
                 SumOfVectors += waterBall.transform.position;
                 SumOfDrops++;
             }
-
             var rock = other.gameObject.GetComponent<BedRock>();
             if (rock != null)
             {
                 if (rock.CompareTag("Backstone"))
                 {
                     hitback = true;
-                    Debug.Log("XXXXXXXXXXXXXXXXXX");
-                }
+                    rock.PlaySound();
 
+                }
                 if (rock.CompareTag("Frontstone"))
                 {
                     hitfront = true;
-                    Debug.Log("YYYYYYYYYYY");
+                    rock.PlaySound();
                 }
             }
-
-
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject != null)
@@ -76,23 +67,18 @@ public class ShShiStick : MonoBehaviour
                 var waterball = other.gameObject.GetComponent<Water>();
                 if (waterball)
                     waterball.inside = false;
-
                 SumOfVectors -= waterball.transform.position;
             }
-
             var rock = other.gameObject.GetComponent<BedRock>();
             if (rock != null)
             {
                 if (rock.CompareTag("Backstone"))
                 {
                     hitback = false;
-                    Debug.Log("JJJJJJJJJJJJ");
                 }
-
                 if (rock.CompareTag("Frontstone"))
                 {
                     hitfront = false;
-                    Debug.Log("OOOOOOO");
                 }
             }
             
@@ -100,13 +86,11 @@ public class ShShiStick : MonoBehaviour
         
     }
     
-
     public void WaterPosUpdate(Vector3 Positionmove)
     {
         SumOfVectors += Positionmove;
         SumOfDrops++;
     }
-
     // Update is called once per frame
     void Update()
     {

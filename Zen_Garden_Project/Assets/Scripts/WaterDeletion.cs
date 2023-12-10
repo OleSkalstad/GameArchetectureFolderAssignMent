@@ -2,25 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class WaterDeletion : MonoBehaviour
 {
+    private float TD=0;
+    [SerializeField] private int DESTRUCTION=0;
 
-
-
-
-    private Water _water;
     
 
     private void OnCollisionEnter(Collision other)
     {
+    
+            
         if (other.gameObject != null)
         {
             
             var _water = other.gameObject.GetComponent<Water>();
+     
             if (_water)
             {
-                Destroy(other.gameObject);
+                Destroy(other.gameObject, DESTRUCTION);
             }
           
             

@@ -178,6 +178,7 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Package Resources" />
      <Folder Include="Library\PackageCache\com.unity.modules.terrain@1.0.0" />
      <None Include="Library\PackageCache\com.unity.modules.animation@1.0.0\package.json" />
+     <Folder Include="Assets\Sounds" />
      <Folder Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib" />
      <None Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.modules.uielements@1.0.0\package.json" />
