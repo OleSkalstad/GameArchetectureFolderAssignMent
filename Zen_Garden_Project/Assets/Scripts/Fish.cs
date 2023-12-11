@@ -5,42 +5,95 @@ using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using Color = UnityEngine.Color;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(MeshFilter))]
 public class Fish : MonoBehaviour
 {
-
+    [SerializeField] private Transform[] traveldestination;
+    
     private int n;
     private const int _DegreeI = 2;
-    [SerializeField] private float[] _t;
-    [SerializeField] public List<Vector3> controlPoints = new();  
-    
-    public Vector3[] Vertices;
+    [SerializeField] private int[] _t;
+    private float randomSpawn;
     
     private const float H = 0.05f;
     private const float Tmin = 0.0f;
     private const float Tmax = 3.0f;
+    
+    
+
+    private float _TD=0;
+    [SerializeField] private float SlowSpeed=1;
 
 
 
     private void Awake()
     {
+        //init the spawntime
+        randomSpawn = _TD + Random.Range(1.5f, 4f);
         
-        
+        //inits the spline
+        n = traveldestination.Length;
+        InitKjøtevektor();
         BSplineCurve();
+        
+    }
+    
+    void InitKjøtevektor()
+    {
+        int index = 0;
+        _t = new int[n + _DegreeI + 1];
+        _t[0] = 0;
+        _t[1] = 0;
+        _t[2] = 0;
+     
+        
+        for (int i = 0; i < n-2; i++)
+        {
+            _t[i + 3] = i+1;
+            index++;
+        }
+
+  
+        _t[n + _DegreeI-1] = index;
+        _t[n + _DegreeI ] = index;
+        
+       
         
     }
 
 
     int FindKnotInterval(float x)
     {
-        int my = controlPoints.Count - 1; //Index til siste kontollpunkt
+        int my = traveldestination.Length - 1; //Index til siste kontollpunkt
         while (my>=0 && my<_t.Length && x < _t[my] && my > _DegreeI)
             my--; 
         
         return my;
     }
-    
+
+    private void FixedUpdate()
+    {
+        _TD += Time.deltaTime/SlowSpeed;
+        if (_TD > traveldestination.Length - 2)
+        {
+            if (_TD >= randomSpawn)
+            {
+                randomSpawn = _TD + Random.Range(1.5f, 4f);
+                _TD = 0;
+            }
+        }
+        else
+        {
+            //makes the fish move and rotate with the spline
+            transform.LookAt(transform.position + (transform.position - EvaluateBSplineCurve(_TD)), transform.up);
+            transform.position = EvaluateBSplineCurve(_TD);
+        }
+
+
+    }
+
     //from the notes dag has made
     public Vector3 EvaluateBSplineCurve(float x)
     {
@@ -52,7 +105,8 @@ public class Fish : MonoBehaviour
         for (int j = 0; j <= _DegreeI; j++)
         {
            // Debug.Log("j= "+j);
-            a[_DegreeI - j] = controlPoints[my - j];
+           a[_DegreeI - j] = traveldestination[my - j].position;
+           
         }
 
 
@@ -78,16 +132,16 @@ public class Fish : MonoBehaviour
     private void OnDrawGizmos()
     {
         //drawing the points on the map
-        foreach (var pointcont in controlPoints)
+        foreach (var pointcont in traveldestination)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(pointcont, 0.2f);
+            Gizmos.DrawSphere(pointcont.position, 0.2f);
         }
 
-        for (int i = 0; i > controlPoints.Capacity; i++)
+        for (int i = 0; i > traveldestination.Length; i++)
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(controlPoints[i], controlPoints[i + 1]);
+            Gizmos.DrawLine(traveldestination[i].position, traveldestination[i + 1].position);
         }
 
         // drawing the spline 
@@ -112,7 +166,7 @@ public class Fish : MonoBehaviour
         Vector3[] a= new Vector3[4]; //4=d+1 for kubisk bezier
         for(int i = 0; i<4; i++)
         {
-            a[i] = controlPoints[i];
+            a[i] = traveldestination[i].position;
         }
 
         for (int j = _DegreeI; j > 0; j--)  //for (int k=1; k<=d; k++)
@@ -128,13 +182,7 @@ public class Fish : MonoBehaviour
 
     public void BSplineCurve()
     {
-        n = 5;
-        _t = new float[]
-        {
-            0, 0, 0,
-            1, 2,
-            3, 3, 3,
-        };
+
         
 
         Vector3 v = new Vector3(2.0f,2.0f,1.0f);
@@ -149,16 +197,8 @@ public class Fish : MonoBehaviour
 
 
     }
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
