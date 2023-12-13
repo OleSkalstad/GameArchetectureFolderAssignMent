@@ -16,9 +16,10 @@ public class ShShiStick : MonoBehaviour
     private bool hitfront=false;
     public int SumOfDrops;
     private Anchorpoint _Anchorpoint;
+    //backweight variables
     public Transform BackTransform;
-   
     public int backweight;
+    
     private void OnDrawGizmos()
     {
         
@@ -102,7 +103,9 @@ public class ShShiStick : MonoBehaviour
             
             // Do something with the average position of the raindrops.
             _Anchorpoint.rot(averagePosition,hitback,hitfront);
-                
+            
+           //after its done the rotation calculation it goes back the the defult variables 
+           //in order to be ready for next calculation
             SumOfDrops = backweight;
             SumOfVectors = BackTransform.position*backweight;
         }

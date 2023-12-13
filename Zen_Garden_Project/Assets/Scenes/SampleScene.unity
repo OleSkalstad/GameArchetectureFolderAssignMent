@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 89998706}
   - component: {fileID: 89998709}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Tipping sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

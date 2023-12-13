@@ -131,7 +131,9 @@
      <Folder Include="Assets\Scripts" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@2.0.1" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.18\ValidationExceptions.json" />
+     <Folder Include="Assets\Materials\textures\Fish" />
      <None Include="Library\PackageCache\com.unity.modules.wind@1.0.0\package.json" />
+     <Folder Include="Assets\Materials\textures\Lantern" />
      <Folder Include="Library\PackageCache\com.unity.ugui@1.0.0\Tests" />
      <None Include="Library\PackageCache\com.unity.modules.umbra@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Textures" />
@@ -146,10 +148,12 @@
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.0.5" />
      <Folder Include="Assets\Tree_Textures" />
      <None Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0\package.json" />
+     <Folder Include="Assets\Materials\textures\Rocks\rocks3" />
      <None Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6" />
      <Folder Include="Library\PackageCache\com.unity.ide.rider@3.0.24" />
      <None Include="Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0\package.json" />
+     <Folder Include="Assets\Materials\textures\Lantern\Lantern1" />
      <None Include="Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.5\ValidationConfig.json" />
@@ -181,6 +185,7 @@
      <None Include="Library\PackageCache\com.unity.modules.animation@1.0.0\package.json" />
      <Folder Include="Assets\Sounds" />
      <Folder Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib" />
+     <Folder Include="Assets\Materials\textures\Rocks" />
      <Folder Include="Assets\Materials\textures" />
      <None Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.modules.uielements@1.0.0\package.json" />

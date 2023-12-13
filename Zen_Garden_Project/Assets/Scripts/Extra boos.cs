@@ -19,7 +19,6 @@ public class Extraboos : MonoBehaviour
         if (other.gameObject != null)
         {
             var waterball = other.gameObject.GetComponent<Water>();
-            waterball.addvelocity(new Vector3(0, 10, 0));
         }
 
     }
